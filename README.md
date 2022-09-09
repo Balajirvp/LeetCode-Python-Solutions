@@ -1,2 +1,2 @@
 # LeetCode-Python-Solutions
-Solutions for Leetcode Python problems!
+Solutions for Leetcode Algos problems using Python!
