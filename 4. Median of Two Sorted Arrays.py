@@ -8,7 +8,7 @@ class Solution:
             return nums1[ceil(len(nums1)/2) - 1]
         elif len(nums1) % 2 == 0:
             return (nums1[int((len(nums1)/2) - 1)] + nums1[int(len(nums1)/2)])/2
-
+        
 # Solution 2 (84 ms  14.1 MB)
         
 class Solution:

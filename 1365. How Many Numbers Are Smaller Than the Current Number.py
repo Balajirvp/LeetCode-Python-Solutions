@@ -18,3 +18,11 @@ class Solution:
     def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
         return [sorted(nums).index(i) for i in nums]
             
+# Solution 3 (259 ms, 14 MB)
+
+class Solution:
+    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+        res = []
+        for i in nums:
+            res.append(sum([j < i for j in nums]))
+        return res

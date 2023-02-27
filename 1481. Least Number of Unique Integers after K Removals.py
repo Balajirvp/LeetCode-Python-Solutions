@@ -28,4 +28,4 @@ class Solution:
     def findLeastNumOfUniqueInts(self, arr: List[int], k: int) -> int:
         arr1 = Counter(arr)
         arr1 = sorted(arr, key = lambda x:(arr1[x], x))
-        return len(set(arr1[k:]))       
+        return len(set(arr1[k:]))
