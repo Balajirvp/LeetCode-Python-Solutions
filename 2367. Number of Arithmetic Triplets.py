@@ -10,4 +10,9 @@ class Solution:
                 cnt+=1
         return cnt
 
-# Solution 2 (103 ms, 13.9 MB)
+# Solution 2 (36 ms, 13.7 MB)
+
+class Solution:
+    def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
+        seen = set(nums)
+        return sum(num - diff in seen and num - diff * 2 in seen for num in seen)
