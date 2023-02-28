@@ -47,4 +47,12 @@ class Solution:
                 else:
                     arr[i][j] = 1
         return arr
-        
+
+# Solution 5 (47 ms, 13.8 MB)       
+
+class Solution:
+    def flipAndInvertImage(self, image: List[List[int]]) -> List[List[int]]:
+        arr = [i[::-1] for i in image]
+        arr1 = [1 - j for i in arr for j in i]
+        n = len(image)
+        return [arr1[i:i+n] for i in range(0, len(arr1), n)]

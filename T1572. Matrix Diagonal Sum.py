@@ -20,3 +20,17 @@ class Solution(object):
         if n % 2 == 1:
             summ = summ - mat[n//2][n//2] 
         return summ
+    
+# Solution 3 (113 ms, 14.1 MB)
+
+class Solution:
+    def diagonalSum(self, mat: List[List[int]]) -> int:
+        summ = 0
+        l = len(mat)
+        for i in range(l):
+            summ+= mat[i][i]
+            summ+= mat[i][-1-i]
+        if l % 2:
+            summ-= mat[l//2][l//2]
+        return summ
+            
