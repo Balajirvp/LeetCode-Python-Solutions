@@ -1,4 +1,4 @@
-# Solution 1: (9249 ms	14.9 MB)
+# Solution 1: (9249 ms, 14.9 MB)
 
 from itertools import combinations
 
@@ -13,7 +13,7 @@ class Solution:
         b = max(loc for loc, val in enumerate(nums) if val == final_num[1])
         return [a,b]
 
-# Solution 2: (3841 ms	14.9 MB)
+# Solution 2: (3841 ms, 14.9 MB)
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
@@ -22,15 +22,12 @@ class Solution:
                 if nums[i] + nums[j] == target:
                     return [i,j]
 
-# Solution 3: (101 ms	15.2 MB) (Using HashMap)
+# Solution 3: (69 ms, 15.2 MB) (Using HashMap)
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        seen = {}
-        for key,value in enumerate(nums):
-            remaining = target - nums[key]
-            
-            if remaining in seen:
-                return [key, seen[remaining]]
-            
-            seen[value] = key
+        dict1 = {}
+        for idx, val in enumerate(nums):
+            if target - val in dict1:
+                return [dict1[target - val], idx]
+            dict1[val] = idx
