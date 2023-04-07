@@ -1,4 +1,17 @@
-# Solution 1 (45 ms, 13.8 MB)
+# Solution 1 (31 ms, 13.8 MB) (Better solution)
+
+class Solution:
+    def halvesAreAlike(self, s: str) -> bool:
+        vowels = 'aeiouAEIOU'
+        l = len(s)
+        cnt1, cnt2 = 0, 0
+        arr1, arr2 = s[:l//2], s[l//2:]
+        for i in vowels:
+            cnt1+=arr1.count(i)
+            cnt2+=arr2.count(i)
+        return cnt1 == cnt2
+
+# Solution 2 (45 ms, 13.8 MB)
 
 class Solution:
     def halvesAreAlike(self, s: str) -> bool:
@@ -16,4 +29,7 @@ class Solution:
             if i in vow:
                 cnt2+=1
         return cnt1 == cnt2
+    
+
+        
         
