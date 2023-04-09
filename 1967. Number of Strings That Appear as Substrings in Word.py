@@ -1,9 +1,5 @@
-# Solution 1 (43 ms, 13.9 MB)
+# Solution 1 (36 ms, 13.8c MB)
 
 class Solution:
     def numOfStrings(self, patterns: List[str], word: str) -> int:
-        count = 0
-        for i in patterns:
-            if i in word:
-                count+=1
-        return count
+        return sum([1 for i in patterns if i in word])

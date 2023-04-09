@@ -1,4 +1,4 @@
-# Solution 1 (37 ms, 13.9 MB)
+# Solution 1 (31 ms, 13.9 MB)
 
 class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
@@ -13,7 +13,7 @@ class Solution:
             arr = ''.join(word1[i]+word2[i] for i in range(l1))
             return arr + word2[l1:]
 
-# Solution 2 (43 ms, 14 MB)
+# Solution 2 (31 ms, 14 MB)
 
 class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
@@ -39,3 +39,19 @@ class Solution:
             j+=1 
             
         return arr
+    
+# Solution 3 (24 ms, 13.9 MB)
+
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        l = min(len(word1), len(word2))
+        w1, w2 = word1, word2
+        arr = []
+        for i in range(l):
+            arr.append(word1[i])
+            arr.append(word2[i])
+            w1 = w1.replace(word1[i], '', 1)
+            w2 = w2.replace(word2[i], '', 1)
+        arr.append(w1)
+        arr.append(w2)
+        return ''.join(arr)
