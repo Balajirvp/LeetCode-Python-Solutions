@@ -1,24 +1,12 @@
-
-# Time limit exceeded solution
-
-class Solution:
-    def repeatedNTimes(self, nums: List[int]) -> int:
-        n = int(len(nums)/2)
-        a = [i for i in nums if nums.count(i) == n]
-        return a[0]
-
-# Solution 1 (359 ms, 15.8 MB)
-
-from collections import Counter
+# Solution 1 (212 ms, 15.5 MB)
 
 class Solution:
     def repeatedNTimes(self, nums: List[int]) -> int:
-        n = int(len(nums)/2)
-        a = dict(Counter(nums))
-        b = [k for k,v in a.items() if v == n]
-        return b[0]
+        n = len(nums)/2
+        arr = Counter(nums)
+        return [i for i, v in arr.items() if v == n][0]
 
-# Solution 1 (212 ms, 15.2 MB)
+# Solution 2 (202 ms, 15.2 MB)
 
 class Solution:
     def repeatedNTimes(self, nums: List[int]) -> int:

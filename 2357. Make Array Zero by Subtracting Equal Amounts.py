@@ -1,4 +1,4 @@
-# Solution 1 (68 ms, 13.7 MB)
+# Solution 1 (41 ms, 13.9 MB)
 
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
@@ -8,4 +8,13 @@ class Solution:
             nums = [i - val for i in nums if i > 0]
             cnt+=1
         return cnt
-        
+
+# Solution 2 (23 ms, 13.9 MB)
+    
+class Solution:
+    def minimumOperations(self, nums: List[int]) -> int:
+        arr = Counter(nums)
+        if list(arr) == [0]:
+            return 0
+        else:
+            return len([idx for idx, val in arr.items() if idx > 0])
