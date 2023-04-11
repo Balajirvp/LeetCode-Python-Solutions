@@ -1,4 +1,4 @@
-# Solution 1 (65 ms, 14.1 MB)
+# Solution 1 (59 ms, 14.2 MB)
 
 class Solution:
     def commonChars(self, words: List[str]) -> List[str]:
@@ -11,6 +11,13 @@ class Solution:
                 arr.append(k)
         return arr
         
+# Solution 2 (59 ms, 13.9 MB)
 
-
+class Solution:
+    def commonChars(self, words: List[str]) -> List[str]:
+        arr = words[0]
+        for i in words[1:]:
+            arr = (Counter(i) & Counter(arr))
+        arr2 = [[idx]*val for idx, val in arr.items()]
+        return [j for i in arr2 for j in i]
 

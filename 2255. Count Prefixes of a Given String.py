@@ -1,11 +1,11 @@
-# Solution 1 (88 ms, 14.1 MB)
+# Solution 1 (53 ms, 14.1 MB)
 
 class Solution:
     def countPrefixes(self, words: List[str], s: str) -> int:
-        s_list = [s[0:0+j] for j in range(1,len(s)+1)]
-        return len([i for i in words if i in s_list])
+        prefixes = [s[:i+1] for i in range(len(s))]
+        return len([i for i in words if i in prefixes])
 
-# Solution 2 (72 ms, 14.1 MB)
+# Solution 2 (53 ms, 14.1 MB)
 
 class Solution:
     def countPrefixes(self, words: List[str], s: str) -> int:

@@ -1,14 +1,9 @@
-# Solution 1 (51 ms, 14 MB)
+# Solution 1 (27 ms, 13.9 MB)
 
 class Solution:
     def areNumbersAscending(self, s: str) -> bool:
-        arr = list(s.split())
-        nums = [int(i) for i in arr if i.isnumeric()]
-        res = []
-        for i in range(1, len(nums)):
-            res.append(nums[i] - nums[i - 1])
-        result = [i for i in res if i <= 0]
-        if len(result) >= 1:
-            return False
-        else:
-            return True
+        nums = [int(i) for i in s.split() if i.isdigit()]
+        arr = []
+        for i in range(0, len(nums) - 1):
+            arr.append(nums[i+1] - nums[i])
+        return sum([1 for i in arr if i <= 0]) == 0
