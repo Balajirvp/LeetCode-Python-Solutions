@@ -1,4 +1,4 @@
-# Solution 1 (36 ms, 13.9 MB)
+# Solution 1 (31 ms, 13.9 MB)
 
 class Solution:
     def reformatDate(self, date: str) -> str:
@@ -7,3 +7,11 @@ class Solution:
         l = len(arr[0])
         day = '0' + arr[0][0] if l == 3 else arr[0][:2]
         return arr[-1] + '-' + month[arr[1]] + '-' + day
+
+# Solution 2 (27 ms, 13.8 MB)  
+
+class Solution:
+    def reformatDate(self, date: str) -> str:
+        months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        arr = date.split()
+        return '-'.join( ( arr[-1], str(months.index(arr[1]) + 1).rjust(2, "0"), arr[0][:-2].rjust(2, "0") ) )

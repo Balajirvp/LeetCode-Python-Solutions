@@ -1,10 +1,9 @@
-# Solution 1 (50 ms, 13.8 MB)
+# Solution 1 (23 ms, 13.8 MB)
 
 class Solution:
     def capitalizeTitle(self, title: str) -> str:
-        a = list(title.split())
         arr = []
-        for i in a:
+        for i in title.split():
             if len(i) <= 2:
                 arr.append(i.lower())
             else:

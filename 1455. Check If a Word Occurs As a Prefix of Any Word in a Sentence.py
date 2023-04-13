@@ -1,15 +1,11 @@
-# Solution 1 (53 ms, 14 MB)
+# Solution 1 (23 ms, 13.8 MB)
 
 class Solution:
     def isPrefixOfWord(self, sentence: str, searchWord: str) -> int:
         l = len(searchWord)
-        arr = [i for i in sentence.split() if len(i) >= l]
-        res = []
-        for i in arr:
-            if searchWord == i[:l]:
-                res.append(i)
-        result = [idx+1 for idx, val in enumerate(sentence.split()) if val in res]
-        if result:
-            return min(result)
+        arr = [idx for idx, val in enumerate(sentence.split()) if val[:l] == searchWord]
+        if arr:
+            return min(arr) + 1
         else:
-            return -1
+            return -1 
+        
