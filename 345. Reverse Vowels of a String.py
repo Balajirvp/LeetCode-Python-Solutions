@@ -1,4 +1,4 @@
-# Solution 1 (46 ms, 15.6 MB)
+# Solution 1 (44 ms, 15.6 MB)
 
 class Solution:
     def reverseVowels(self, s: str) -> str:
@@ -10,3 +10,15 @@ class Solution:
                 s[i] = vowels[j]
                 j+=1
         return ''.join(s)
+
+# Solution 2 (52 ms, 18.4 MB)
+
+class Solution:
+    def reverseVowels(self, s: str) -> str:
+        a = [idx for idx, val in enumerate(s) if val in 'aeiouAEIOU']
+        b = [val for idx, val in enumerate(s) if val in 'aeiouAEIOU'][::-1]
+        dict1 = dict(zip(a,b))
+        arr = list(s)
+        for i,v in dict1.items():
+            arr[i] = v
+        return ''.join(arr)
