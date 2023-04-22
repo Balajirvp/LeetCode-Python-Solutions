@@ -15,7 +15,7 @@ class Solution:
         arr = arr + [-1]
         return arr
 
-# Solution 3 (136 ms, 15.6 MB)
+# Solution 3 (788 ms, 15.9 MB)
 
 class Solution:
     def replaceElements(self, arr: List[int]) -> List[int]:
@@ -25,3 +25,16 @@ class Solution:
             arr1.append(maxx)
             maxx = max(maxx, i)
         return arr1[::-1]
+    
+# Solution 4 (723 ms, 16.1 MB)
+
+class Solution:
+    def replaceElements(self, arr: List[int]) -> List[int]:
+        out = [-1]
+        greatest = 0
+        for num in arr[::-1]:
+            if num > greatest:
+                greatest = num
+            out.append(greatest)
+        out.pop()
+        return out[::-1]

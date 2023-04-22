@@ -1,11 +1,10 @@
-# Solution 1 (404 ms, 16.2 MB)
+# Solution 1 (201 ms, 16.2 MB)
 
 class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
-        arr = [i*i for i in nums]
-        return sorted(arr)
+        return sorted([i*i for i in nums])
 
-# Solution 2 (264 ms, 16.3 MB)
+# Solution 2 (201 ms, 16.1 MB)
 
 class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
