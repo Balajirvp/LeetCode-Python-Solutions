@@ -1,16 +1,4 @@
-# Memory Limit Exceeded (33/37 cases passed)
-
-from itertools import combinations
-
-class Solution:
-    def minimumAbsDifference(self, arr: List[int]) -> List[List[int]]:
-        arr.sort()
-        a = combinations(arr,2)
-        b = {tuple(i):abs(i[0] - i[1]) for i in a}
-        minn = min(b.values())
-        return [k for k,v in b.items() if v == minn]
-
-# Solution 1 (481 ms, 28.6 MB)
+# Solution 1 (324 ms, 29 MB)
 
 class Solution:
     def minimumAbsDifference(self, arr: List[int]) -> List[List[int]]:
@@ -27,4 +15,12 @@ class Solution:
                 res.append([a,b])
         
         return res
-            
+
+# Solution 2 (387 ms, 39.6 MB)
+
+class Solution:
+    def minimumAbsDifference(self, arr: List[int]) -> List[List[int]]:
+        arr.sort()
+        dict1 = {(arr[i], arr[i+1]): arr[i+1] - arr[i] for i in range(len(arr)-1)}
+        v = min(dict1.values())
+        return [list(idx) for idx, val in dict1.items() if val == v]
