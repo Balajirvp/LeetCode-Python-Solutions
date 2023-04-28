@@ -1,4 +1,4 @@
-# Solution 1 (46 ms, 13.9 MB)
+# Solution 1 (57 ms, 16.4 MB)
 
 class Solution:
     def threeConsecutiveOdds(self, arr: List[int]) -> bool:
@@ -8,3 +8,13 @@ class Solution:
             if sum(a[i:i+3]) == 3:
                 count+= 1
         return count
+
+# Solution 2 (62 ms, 16.6 MB)
+
+class Solution:
+    def threeConsecutiveOdds(self, arr: List[int]) -> bool:
+        val = [i % 2 for i in arr]
+        final = [sum(val[i:i+3]) for i in range(0, len(val))]
+        if 3 in final:
+            return True
+        return False

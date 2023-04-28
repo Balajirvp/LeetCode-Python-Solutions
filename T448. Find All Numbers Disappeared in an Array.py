@@ -1,11 +1,11 @@
-# Solution 1 (637 ms, 26.9 MB)
-
+# Solution 1 (348 ms, 28.6 MB)
+    
 class Solution:
     def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
-        n = [i for i in range(1, len(nums) + 1)]
-        return set(n) - set(nums)
+        arr = range(1, len(nums)+1)
+        return set(arr) - set(nums)
 
-# Solution 2 (563 ms, 23.7 MB)
+# Solution 2 (344 ms, 26.8 MB)
 
 class Solution:
     def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
@@ -17,3 +17,4 @@ class Solution:
             if num not in hash_table:
                 result.append(num)               
         return result          
+    
