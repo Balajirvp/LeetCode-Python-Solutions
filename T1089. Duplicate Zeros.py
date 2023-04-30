@@ -1,4 +1,4 @@
-# Solution 1 (96 ms, 14.8 MB)
+# Solution 1 (75 ms, 17.2 MB)
 
 class Solution:
     def duplicateZeros(self, arr: List[int]) -> None:
@@ -11,3 +11,20 @@ class Solution:
                 i+=2
             else:
                 i+=1
+
+# Solution 2 (76 ms, 17.2 MB)
+
+class Solution:
+    def duplicateZeros(self, arr: List[int]) -> None:
+        """
+        Do not return anything, modify arr in-place instead.
+        """
+        l = len(arr)
+        val = []
+        for i, v in enumerate(arr):
+            if v == 0:
+                val.append(0)
+                val.append(0)
+            else:
+                val.append(v)
+        arr[:] = val[:l]
